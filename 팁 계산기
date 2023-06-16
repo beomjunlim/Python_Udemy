@@ -1,0 +1,8 @@
+print("Welcome to the tip calculator.")
+bill = float(input("What was the total bill? $"))
+tip = int(input("What percentage tip would you like to give? 10, 12, or 15? "))
+num = int(input("How many people to split the bill? "))
+total = (bill + bill * tip / 100) / num
+final_amount = round(total, 2)  # 소수점 어디서 반올림 할 지 정함
+final_amount = "{:.2f}".format(total) # 부동 소수점을 문자열로 바꿔줌, 2f 소수점 이하 둘째 자리까지의 특정형식을 취함
+print(f"Each person should pay ${final_amount}")  # F-String 트릭 f를 이용하여 중괄호에 변수를 넣을 수 있음
