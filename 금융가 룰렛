@@ -1,0 +1,13 @@
+import random
+
+names_string = input("Give me everybody's names, serperated by a comma. ")
+
+names = names_string.split(", ")  # , 을 기준으로 문자열 자른다.
+
+num_items = len(names)
+
+random_choice = random.randint(0, num_items - 1)
+person_who_will_pay = names[random_choice]
+person_who_will_pay2 = random.choice(names) # 한 줄로 할 수 있음
+print(person_who_will_pay + " is going to buy the meal today.")
+print(person_who_will_pay2 + " is going to buy the meal today.")
