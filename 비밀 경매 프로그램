@@ -1,0 +1,31 @@
+import os
+
+
+def clear():
+    os.system("clear")# 터미널 내용을 지우는 함수
+
+
+bids = {} # 낙찰자 이름 비용을 담는 딕셔너리
+bidding_finished = False # while문을 끝내는 조건
+
+
+def find_highest_bidder(bidding_record): # 최고 낙찰자를 찾는 함수
+    highest_bid = 0
+    for bidder in bidding_record:
+        bid_amount = bidding_record[bidder]
+        if highest_bid < bid_amount:
+            highest_bid = bid_amount
+            winner = bidder
+    print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+
+while not bidding_finished:
+    name = input("What is yout name?: ")
+    price = int(input("What is your bid?: $"))
+    bids[name] = price # 낙찰자 이름을 key 가격을 value
+    should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+    if should_continue == "no":
+        bidding_finished = True
+        find_highest_bidder(bids)
+    elif should_continue == "yes":
+        clear()
