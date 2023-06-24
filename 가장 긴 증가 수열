@@ -1,0 +1,20 @@
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+
+dp = [1] * n
+
+buf = list(map(int, input().split()))# 한 줄에 여러 입력 넣기 위한 방법
+
+max_num = 0
+
+for i in range(n):
+    for j in range(i):
+        if buf[i] > buf[j]:
+            dp[i] = max(dp[j] + 1, dp[i])
+    if dp[i] > max_num:
+        max_num = dp[i]
+
+print(max_num)
