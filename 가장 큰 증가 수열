@@ -1,0 +1,14 @@
+import sys
+
+input = sys.stdin.readline
+
+n = int(input().strip())
+buf = [int(x) for x in input().split()]
+dp = buf[:]
+
+for i in range(n):
+    for j in range(i):
+        if buf[i] > buf[j]:
+            dp[i] = max(dp[j] + buf[i], dp[i])
+
+print(max(dp))
