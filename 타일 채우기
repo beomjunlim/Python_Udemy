@@ -1,0 +1,16 @@
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+
+dp = [0 for i in range(n + 1)]
+
+dp[2] = 3
+
+for i in range(4, n + 1, 2): # i부터 n까지 x씩 증가
+    dp[i] = dp[i - 2] * 3 + 2
+    for j in range(2, i - 2, 2):
+        dp[i] += dp[j] * 2
+
+print(dp[n])
