@@ -1,0 +1,23 @@
+import sys
+
+input = sys.stdin.readline
+
+e, s, m = map(int, input().split())
+
+t_e = t_s = t_m = result = 1
+
+while True:
+    if t_e == e and t_s == s and t_m == m:
+        break
+    t_e += 1
+    t_s += 1
+    t_m += 1
+    result += 1
+    if t_e > 15:
+        t_e = 1
+    if t_s > 28:
+        t_s = 1
+    if t_m > 19:
+        t_m = 1
+
+print(result)
